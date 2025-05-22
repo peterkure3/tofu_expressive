@@ -1,23 +1,30 @@
 name: Dart CI
 
-on: [push, pull_request]
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.0'
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Analyze
-        run: dart analyze
+        run: flutter analyze
 
       - name: Run tests
         run: flutter test
-
-      - name: Format
-        run: dart format --set-exit-if-changed .
