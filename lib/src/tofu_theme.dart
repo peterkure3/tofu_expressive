@@ -6,7 +6,6 @@ class TofuTheme {
     return FlexThemeData.light(
       scheme: FlexScheme.material,
       useMaterial3: true,
-      useMaterial3ErrorColors: true,
       subThemesData: const FlexSubThemesData(
         blendOnLevel: 20,
         blendOnColors: true,
@@ -16,7 +15,7 @@ class TofuTheme {
       colors: seedColor != null
           ? FlexSchemeColor.from(
               primary: seedColor,
-              secondary: seedColor.withOpacity(0.8),
+              secondary: seedColor.withAlpha((255 * 0.8).round()),
             )
           : null,
     );
@@ -26,7 +25,6 @@ class TofuTheme {
     return FlexThemeData.dark(
       scheme: FlexScheme.espresso,
       useMaterial3: true,
-      useMaterial3ErrorColors: true,
       subThemesData: const FlexSubThemesData(
         blendOnLevel: 30,
         blendOnColors: true,
@@ -36,7 +34,7 @@ class TofuTheme {
       colors: seedColor != null
           ? FlexSchemeColor.from(
               primary: seedColor,
-              secondary: seedColor.withOpacity(0.8),
+              secondary: seedColor.withAlpha((255 * 0.8).round()),
             )
           : null,
     );

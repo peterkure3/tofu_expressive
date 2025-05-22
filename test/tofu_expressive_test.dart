@@ -1,12 +1,28 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:tofu_expressive/tofu_expressive.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  group('TofuTheme', () {
+    test('light() returns a valid ThemeData with default seed color', () {
+      final theme = TofuTheme.light();
+      expect(theme, isA<ThemeData>());
+      expect(theme.brightness, Brightness.light);
+    });
+
+    test('dark() returns a valid ThemeData with default seed color', () {
+      final theme = TofuTheme.dark();
+      expect(theme, isA<ThemeData>());
+      expect(theme.brightness, Brightness.dark);
+    });
+
+    test('light() and dark() accept and apply custom seed color', () {
+      final seedColor = Colors.teal;
+      final lightTheme = TofuTheme.light(seedColor);
+      final darkTheme = TofuTheme.dark(seedColor);
+
+      expect(lightTheme.colorScheme.primary, seedColor);
+      expect(darkTheme.colorScheme.primary, seedColor);
+    });
   });
 }

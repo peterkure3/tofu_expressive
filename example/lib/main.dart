@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tofu_expressive/tofu_expressive.dart';
+import 'package:tofu_expressive/tofu_expressive.dart'; // Adjust if needed
 
 void main() {
   runApp(
@@ -17,50 +17,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeController = Provider.of<ThemeController>(context);
+    final isDark = themeController.isDarkMode;
 
     return MaterialApp(
       title: 'Tofu Expressive Demo',
+      debugShowCheckedModeBanner: false,
       theme: TofuTheme.light(),
       darkTheme: TofuTheme.dark(),
       themeMode: themeController.themeMode,
-      home: const HomePage(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final themeController = Provider.of<ThemeController>(context);
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tofu Expressive Theme'),
-        actions: [
-          IconButton(
-            icon: Icon(themeController.isDarkMode ? Icons.light_mode : Icons.dark_mode),
-            onPressed: () {
-              themeController.toggleTheme(!themeController.isDarkMode);
-            },
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Tofu Expressive')),
+        body: Center(
+          child: SwitchListTile(
+            title: Text(isDark ? 'Dark Mode' : 'Light Mode'),
+            value: isDark,
+            onChanged: themeController.toggleTheme,
           ),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Current Theme: ${themeController.themeMode.name}'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                themeController.setThemeMode(ThemeMode.system);
-              },
-              child: const Text('Follow System Theme'),
-            ),
-          ],
         ),
       ),
     );
