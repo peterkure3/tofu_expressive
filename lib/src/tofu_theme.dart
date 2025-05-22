@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class TofuTheme {
   static ThemeData light([Color? seedColor]) {
     return FlexThemeData.light(
-      scheme: FlexScheme.espresso,
+      scheme: FlexScheme.material,
       useMaterial3: true,
       useMaterial3ErrorColors: true,
       subThemesData: const FlexSubThemesData(
@@ -13,7 +13,12 @@ class TofuTheme {
       ),
       visualDensity: VisualDensity.standard,
       fontFamily: 'Roboto',
-      colors: seedColor != null ? FlexColorScheme.light(seedColor: seedColor).toScheme : null,
+      colors: seedColor != null
+          ? FlexSchemeColor.from(
+              primary: seedColor,
+              secondary: seedColor.withOpacity(0.8),
+            )
+          : null,
     );
   }
 
@@ -28,7 +33,12 @@ class TofuTheme {
       ),
       visualDensity: VisualDensity.standard,
       fontFamily: 'Roboto',
-      colors: seedColor != null ? FlexColorScheme.dark(seedColor: seedColor).toScheme : null,
+      colors: seedColor != null
+          ? FlexSchemeColor.from(
+              primary: seedColor,
+              secondary: seedColor.withOpacity(0.8),
+            )
+          : null,
     );
   }
 }
