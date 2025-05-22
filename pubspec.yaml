@@ -1,7 +1,7 @@
 name: tofu_expressive
-description: "A new Flutter package project."
+description: Material 3 expressive theme with dynamic color, dark/light mode, and platform support.
 version: 0.0.1
-homepage:
+homepage: https://github.com/peterkure/tofu_expressive
 
 environment:
   sdk: ^3.5.4
@@ -10,7 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  dynamic_color: ^1.6.6
+  flex_color_scheme: ^7.0.5
+  provider: ^6.1.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -20,7 +23,6 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
 
   # To add assets to your package, add an assets section, like this:
   # assets:
