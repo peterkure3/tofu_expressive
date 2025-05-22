@@ -57,8 +57,8 @@ See the [`example/`](example/) folder for a full sample Flutter app using Tofu E
 
 ## 🖼️ Screenshots
 
-| Light Mode | Dark Mode |
-|------------|-----------|
+| Light Mode                    | Dark Mode                   |
+| ----------------------------- | --------------------------- |
 | ![light](screenshots/light.png) | ![dark](screenshots/dark.png) |
 
 ## ⚙️ Custom Seed Colors
@@ -77,6 +77,10 @@ TofuTheme.dark(Colors.teal);
 - `ThemeController.toggleTheme(bool isDarkMode)`
 - `ThemeController.setThemeMode(ThemeMode)`
 
+## Link to Pub.dev
+
+[![pub package](https://img.shields.io/pub/v/tofu_expressive.svg)](https://pub.dev/packages/tofu_expressive)
+
 ## 💡 Inspiration
 
 Based on Material 3 keynote color schemes and Google's expressive UI principles.
@@ -90,7 +94,8 @@ Based on Material 3 keynote color schemes and Google's expressive UI principles.
 
 ## 📄 License
 
-MIT License © 2025 [Your Name]
+MIT License © 2025 Peter Kure
 
 ---
+
 Made with 💛 for Flutter developers.
