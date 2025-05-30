@@ -1,7 +1,9 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 
+/// Tofu Expressive theme
 class TofuTheme {
+  /// Light theme with default seed color
   static ThemeData light({
     Color? seedColor,
     FlexScheme scheme = FlexScheme.material,
@@ -27,6 +29,7 @@ class TofuTheme {
     );
   }
 
+  /// Dark theme with default seed color
   static ThemeData dark({
     Color? seedColor,
     FlexScheme scheme = FlexScheme.material,
