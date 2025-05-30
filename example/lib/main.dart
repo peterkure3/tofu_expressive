@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tofu_expressive/tofu_expressive.dart'; // Adjust if needed
+import 'package:tofu_expressive/tofu_expressive.dart';
 
 void main() {
   runApp(
@@ -26,12 +26,17 @@ class MyApp extends StatelessWidget {
       darkTheme: TofuTheme.dark(),
       themeMode: themeController.themeMode,
       home: Scaffold(
-        appBar: AppBar(title: const Text('Tofu Expressive')),
+        appBar: AppBar(
+          title: const Text('Tofu Expressive'),
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          surfaceTintColor: Theme.of(context).colorScheme.surfaceTint,
+          elevation: 0,
+        ),
         body: Center(
           child: SwitchListTile(
             title: Text(isDark ? 'Dark Mode' : 'Light Mode'),
             value: isDark,
-            onChanged: themeController.toggleTheme,
+            onChanged: (_) => themeController.toggleTheme(isDark),
           ),
         ),
       ),

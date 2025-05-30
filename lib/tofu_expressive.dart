@@ -34,7 +34,5 @@
   Copyright (c) 2025 Peter Kure. MIT Licensed.
 */
 
-
-
 export 'src/tofu_theme.dart';
 export 'src/theme_controller.dart';
