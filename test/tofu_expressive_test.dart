@@ -17,12 +17,12 @@ void main() {
     });
 
     test('light() and dark() accept and apply custom seed color', () {
-      final seedColor = Colors.teal;
-      final lightTheme = TofuTheme.light(seedColor);
-      final darkTheme = TofuTheme.dark(seedColor);
+      const seedColor = Colors.teal;
+      final lightTheme = TofuTheme.light(seedColor: seedColor);
+      final darkTheme = TofuTheme.dark(seedColor: seedColor);
 
-      expect(lightTheme.colorScheme.primary, seedColor);
-      expect(darkTheme.colorScheme.primary, seedColor);
+      expect(lightTheme.colorScheme.primary.toARGB32(), seedColor.toARGB32());
+      expect(darkTheme.colorScheme.primary.toARGB32(), seedColor.toARGB32());
     });
   });
 }
