@@ -21,3 +21,9 @@ Ensures compatibility with Material 3 widgets such as NavigationBar, FilledButto
 
 * Example Application:
 Provided a full example application demonstrating theme switching, custom palettes, and dynamic styling.
+
+## 0.0.2
+
+- Added comprehensive Dartdoc comments to public API elements.
+- Improved theme management in the example application.
+- Updated README with usage examples.
