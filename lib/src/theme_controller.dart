@@ -19,8 +19,9 @@ class ThemeController extends ChangeNotifier {
   Color get seedColor => _seedColor;
 
   /// Toggles between light and dark themes.
-  void toggleTheme(bool isDark) {
-    _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+  void toggleTheme() {
+    _themeMode =
+        _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
 
