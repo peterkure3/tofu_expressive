@@ -27,3 +27,10 @@ Provided a full example application demonstrating theme switching, custom palett
 - Added comprehensive Dartdoc comments to public API elements.
 - Improved theme management in the example application.
 - Updated README with usage examples.
+
+## 0.0.3
+
+- Fixed a bug in `ThemeController.toggleTheme` where the theme was not toggling correctly.
+- Refactored `TofuTheme` to reduce code duplication.
+- Added tests for `ThemeController`.
+- Enhanced the example application to showcase dynamic color and seed color features.
