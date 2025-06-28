@@ -1,3 +1,4 @@
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tofu_expressive/tofu_expressive.dart';
@@ -17,29 +18,64 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeController = Provider.of<ThemeController>(context);
-    final isDark = themeController.isDarkMode;
 
-    return MaterialApp(
-      title: 'Tofu Expressive Demo',
-      debugShowCheckedModeBanner: false,
-      theme: TofuTheme.light(),
-      darkTheme: TofuTheme.dark(),
-      themeMode: themeController.themeMode,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Tofu Expressive'),
-          backgroundColor: Theme.of(context).colorScheme.surface,
-          surfaceTintColor: Theme.of(context).colorScheme.surfaceTint,
-          elevation: 0,
-        ),
-        body: Center(
-          child: SwitchListTile(
-            title: Text(isDark ? 'Dark Mode' : 'Light Mode'),
-            value: isDark,
-            onChanged: (_) => themeController.toggleTheme(isDark),
+    return DynamicColorBuilder(
+      builder: (lightDynamic, darkDynamic) {
+        return MaterialApp(
+          title: 'Tofu Expressive Demo',
+          debugShowCheckedModeBanner: false,
+          theme: TofuTheme.light(
+            seedColor: themeController.seedColor,
           ),
-        ),
-      ),
+          darkTheme: TofuTheme.dark(
+            seedColor: themeController.seedColor,
+          ),
+          themeMode: themeController.themeMode,
+          home: Scaffold(
+            appBar: AppBar(
+              title: const Text('Tofu Expressive'),
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              surfaceTintColor: Theme.of(context).colorScheme.surfaceTint,
+              elevation: 0,
+            ),
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SwitchListTile(
+                    title: Text(themeController.isDarkMode
+                        ? 'Dark Mode'
+                        : 'Light Mode'),
+                    value: themeController.isDarkMode,
+                    onChanged: (_) => themeController.toggleTheme(),
+                  ),
+                  const SizedBox(height: 20),
+                  const Text('Seed Color'),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: [
+                      for (final color in [
+                        Colors.teal,
+                        Colors.blue,
+                        Colors.purple
+                      ])
+                        GestureDetector(
+                          onTap: () => themeController.setSeedColor(color),
+                          child: CircleAvatar(
+                            backgroundColor: color,
+                            radius: 20,
+                          ),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
